@@ -1,0 +1,111 @@
+<head>
+<style>
+body {
+  background-color: #333333;
+  font-size: 2.5vmax;
+  font-family: 'Rock Salt', cursive;
+  text-align: center;
+  color: #A5E1FC;
+  padding: 0px;
+
+}
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+#main-head {
+  position: relative;
+  top: -0.5ex;
+  font-size: 10vmax;
+}
+#main-head > div {
+  position: relative;
+  top: -0.5ex;
+  margin-bottom: -0.5ex;
+  font-size: 5vmax;
+  color: #5AB0FA;
+  font-family: 'Nanum Pen Script', cursive;
+}
+hr {
+  border-color: #A5E1FC;
+  width: 50vw;
+}
+#cont {
+  display: flex;
+  flex-direction: column;
+  padding-left: 12.5vw;
+  padding-right: 12.5vw;
+  font-family: 'Nanum Pen Script', cursive;
+  color: #A5E1FC;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+  user-select: none;
+}
+canvas {
+  z-index: 1;
+}
+ul {
+  flex-grow: 1;
+  width: 50%;
+}
+.note {
+  width: 100%;
+  text-align: center;
+  font-size: 75%;
+  font-family: 'Nanum Pen Script', cursive;
+  color: #66B2FF;
+}
+a:link {
+  color: #d1e9cd;
+}
+a:visited {
+  color: #A3D49C;
+}
+</style>
+<script>
+var drawCanvas, mouseDown, ctx, lineWidth = 10, beginNew, lineWidth, color = "#5AC8FA", isInvert = false, colorIndex = 0, colors = ['#A5E1FC', '#d1e9cd'];
+function loaded() {
+drawCanvas = document.getElementById('drawCanvas');
+ctx = drawCanvas.getContext("2d");
+drawCanvas.width= window.innerWidth;
+drawCanvas.height=window.innerHeight;
+
+//document.getElementById('body').style.color = colors[Math.floor(Math.random() * colors.length)]
+}
+function draw() {
+
+if(colorIndex < colors.length - 0) { color = colors[colorIndex] } else { colorIndex = 0; color = colors[0] }
+if(lineWidth < 0) { lineWidth = 1 }
+if(isInvert) { color = '#333333' } else { color = colors[colorIndex] }
+if(beginNew) { ctx.beginPath(); beginNew = false; }
+ctx.lineTo(event.x,event.y);
+ctx.lineWidth = lineWidth;
+ctx.strokeStyle = color;
+ctx.stroke();
+ 
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet">
+</head>
+<body id="body" onload="loaded()" oncontextmenu="return false;" onmousewheel="if(event.deltaY < 0)  { beginNew = true; lineWidth++ } else { beginNew = true; lineWidth-- }" onmousedown="if(event.button == 2) { isInvert = true; } else { isInvert = false; } if(event.button == 0 || event.button == 2) { mouseDown  = true; } ctx.beginPath(); ctx.moveTo(event.x,event.y); if(event.button == 1) {colorIndex++}" onmouseup="mouseDown = false; " onmousemove="if(mouseDown) draw()">
+	<div id="cont">
+    <a href=".." style="position: absolute; left: 0px; top: 0px;">&lt; Back</a>
+	<ul>
+    <li><a href="https://github.com/Pixabay/JavaScript-autoComplete">autoComplete.js</a> - <a href="https://opensource.org/licenses/mit-license.php">MIT License</a>: Copyright <span class="YEAR">2018</span> Simon Steinberger / Pixabay.com.</li>
+    <li><a href="http://jscolor.com">Colorjs</a> - <a href="http://www.gnu.org/licenses/gpl-3.0.txt">GNU GPL license v3</a>: Copyright 2008–<span class="YEAR">2018</span> Jan Odvarko</li>
+	  <li><a href="">Dragscroll</a> - <a href="https://github.com/asvd/dragscroll/blob/master/LICENSE">MIT License</a>: Copyright (c) 2015 asvd</li>
+	</ul>
+    <script>for(var i = 0, e = document.getElementsByClassName('YEAR'); i < e.length; i++) { e[i].innerHTML = new Date(Date.now()).getFullYear() }</script>
+	</div>
+  	<canvas id="drawCanvas" height="" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"></canvas>
+</body>

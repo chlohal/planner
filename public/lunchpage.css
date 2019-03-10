@@ -1,0 +1,235 @@
+/* styles */
+/* called by your view template */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: sans-serif;
+  overflow: visible;
+}
+
+h1 {
+    font-weight: bold;
+    color: #fff; 
+    position: relative;
+    margin: 0px;
+}
+
+.bold {
+  font-weight: bold;
+}
+table {
+    height: 100vh;
+    width: 100vw;
+    border-collapse: collapse;
+ 
+    background: #ffffff;
+  
+}
+main:active {
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+}
+td {
+    border-bottom: 1px solid #A6A3AE;
+    position: relative;
+    width: auto;
+}
+th > div {
+    min-width: 1in;
+}
+tr {
+    height: 4.166666666vh;
+    color: #4A5759;
+    overflow-x: hidden;
+}
+#homeroomRow {
+    height: 1vh;
+}
+body > main > table > tbody > tr > td > span {
+    font-size: 0.75em;
+}
+div.letterContainer {
+    position: absolute;
+    margin: auto;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 4em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+div.cellsizer {
+    min-height: 1in;
+    min-width: 1in;
+}
+div.topinfo {
+    font-size: 1em;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: initial;
+    bottom: initial;
+    z-index: 2;
+}
+div.bottominfo {
+    font-size: 1em;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: initial;
+    top: initial;
+    z-index: 2;
+}
+th {
+    background: #dcd9e2;
+    color: #69666f;
+    border-bottom: solid 1px #171717;
+    font-weight: bold;
+    width: auto;
+}
+#tabletop {
+    max-height: 2.166666666vh !important;
+}
+.noclass {
+    background: #B6B3BC;
+    color: #ffffff;
+}
+col {
+    border: solid 1px #171717;
+    border-top: none;
+    border-bottom: none;
+}
+header {
+    width: 100vw;
+    background: #5AB4DD;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    min-height: 0.75in;
+
+    overflow: visible;
+}
+main {
+    height: 90vh;
+    overflow: auto;
+    width: 100vw;
+    background: #5AB4DD;  
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+}
+
+a:link {
+   text-decoration: none;
+   color: inherit;
+}
+#scheduleTooltip {
+    font-size: 0.5em;
+    background: #171717;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    right: -0.5em;
+    font-weight: normal;
+    float: right;
+    white-space: nowrap;
+    opacity: 0;
+    top: 100%;
+    z-index: 50;
+}
+#scheduleIcon:hover #scheduleTooltip {
+    opacity: 1;
+    transition: opacity 0.1s linear 0.2s;
+    cursor: default;
+}
+.windowContainer {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background: #00000000;
+  z-index: 100;
+}
+.overwindow {
+  -webkit-box-shadow: 0px 5px 5px 4px rgba(23,23,23,0.5);
+  -moz-box-shadow: 0px 5px 5px 4px rgba(23,23,23,0.5);
+  box-shadow: 0px 5px 5px 4px rgba(23,23,23,0.5);
+  position: absolute;
+  top: 5vmin;
+  bottom: 5vmin;
+  right: 5vmin;
+  left: 5vmin;
+  background: white;
+  overflow: auto;
+  padding: 5px;
+}
+.overwindow > div > span {
+    font-family: monospace;
+    color: #fe17aa
+}
+.lunchDisp {
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    background: #ffffffee;
+    text-align: right;
+    height: 33%;
+    border-bottom: 1px #171717 solid;
+    border-top: 1px #171717 solid;
+    z-index: 0;
+}
+.lunchDisp.one {
+  top: 0%;
+  bottom: 66%;
+}
+.lunchDisp.two {
+  top: 33%;
+  bottom: 33%;
+}
+.lunchDisp.three {
+  top: 66%;
+  bottom: 0%;
+}
+.classLetter {
+    cursor: zoom-in;
+    user-select: none;
+}
+
+@media (max-width: 8in) {
+      div.letterContainer {
+      font-size: 3em;
+  }
+  div.topinfo {
+      font-size: 0.75em;
+  }
+  div.bottominfo {
+      font-size: 0.75em;
+  }
+  .lunchDisp {
+      font-size: 0.75em;
+      
+  }
+  .lunchDisp.one {
+     padding-top: 1em; 
+  }
+  .lunchDisp.three {
+    padding-bottom: 1em; 
+  }
+  .lunchDisp.two {
+    word-spacing: 1000px;
+  }
+}
+
+
+::-webkit-scrollbar{ display: none;}
+#scheduleConfig::-webkit-scrollbar{ display: block;}
